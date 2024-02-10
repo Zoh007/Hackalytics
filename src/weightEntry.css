@@ -66,4 +66,39 @@
     border: 1px solid #ccc;
     padding-right: 30px; /* Adjust the padding to leave space for the arrow */
   }
+  .workout-splits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  .workout-splits > div {
+    margin-bottom: 20px;
+  }
+  
+  /* Add this to your existing CSS or create a new CSS file and import it */
+.workout-day-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .workout-day {
+    color: #333; /* Change the font color */
+  }
+  
+  .workout-day h3 {
+    color: #555; /* Change the header color if needed */
+  }
+  
+  .workout-day ul {
+    list-style-type: disc;
+    margin-left: 20px; /* Adjust the margin for indentation */
+  }
+  
+  .workout-day li {
+    margin-bottom: 5px;
+  }
   
