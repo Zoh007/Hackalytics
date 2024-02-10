@@ -4,7 +4,7 @@ import React from 'react';
 const LegDay = () => {
   return (
     <div className="workout-day">
-      <h3>Chest Day</h3>
+      <h3>Leg Day</h3>
       <ul>
         <li>Calf Raises</li>
         <li>Seated Leg Curls</li>
