@@ -1,0 +1,69 @@
+/* WeightEntry.css */
+.weight-entry-container {
+    max-width: 400px;
+    margin: auto; /* Center the box on the page */
+    margin-top: 50px; /* Add some top margin for spacing */
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .weight-entry-container h2 {
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    width: 100%;
+    text-align: left;
+  }
+  
+  input,
+  select {
+    width: calc(100% - 20px); /* Adjust the width here, subtracting 20px for padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #61dafb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Additional styling for CalorieDisplay component */
+  .calorie-display-container {
+    margin-top: 20px;
+  }
+  
+  .calorie-display-container p {
+    color: #333;
+  }
+  
+  /* Improved styles for dropdowns */
+  select {
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-position: right 10px top 50%;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+    padding-right: 30px; /* Adjust the padding to leave space for the arrow */
+  }
+  
