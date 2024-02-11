@@ -14,6 +14,8 @@ const WeightEntry = () => {
   const [gender, setGender] = useState(''); // You can use a dropdown or radio buttons for gender
   const [heightInInches, setHeightInInches] = useState('');
   const [calorieIntake, setCalorieIntake] = useState(null);
+  const [activityLevel, setActivityLevel] = useState('');
+  const [showWorkoutInfo, setShowWorkoutInfo] = useState(false);
 
   const handleWeightChange = (event) => {
     setWeightInPounds(event.target.value);
@@ -31,12 +33,39 @@ const WeightEntry = () => {
     setHeightInInches(event.target.value);
   };
 
+  const handleActivityLevelChange = (event) => {
+    setActivityLevel(event.target.value);
+  };
+
   const handleCalculateCalories = () => {
-    // Implement your calorie calculation logic here based on entered information
-    // For simplicity, let's use a basic formula (this is just an example, not accurate)
     const basicCalorieIntake =
-      66 + 6.33 * weightInPounds + 12.7 * heightInInches - 6.8 * age + (gender === 'male' ? 5 : -161);
-    setCalorieIntake(basicCalorieIntake);
+      66 + 6.23 * weightInPounds + 12.7 * heightInInches - 6.8 * age + (gender === 'male' ? 5 : -161);
+
+    let activityMultiplier = 1.2; // Default to sedentary
+
+    switch (activityLevel) {
+      case 'sedentary':
+        activityMultiplier = 1.2;
+        break;
+      case 'lightlyActive':
+        activityMultiplier = 1.375;
+        break;
+      case 'moderatelyActive':
+        activityMultiplier = 1.55;
+        break;
+      case 'veryActive':
+        activityMultiplier = 1.725;
+        break;
+      case 'extremelyActive':
+        activityMultiplier = 1.9;
+        break;
+      default:
+        break;
+    }
+
+    const totalCalorieIntake = basicCalorieIntake * activityMultiplier;
+    setCalorieIntake(totalCalorieIntake);
+    setShowWorkoutInfo(true); // Show workout information after calculating calories
   };
 
   // Generate options for the age dropdown (e.g., from 18 to 99)
@@ -75,19 +104,33 @@ const WeightEntry = () => {
           Height (in inches):
           <input type="number" value={heightInInches} onChange={handleHeightChange} placeholder="e.g., 65" required />
         </label>
+        <label>
+          Activity Level:
+          <select value={activityLevel} onChange={handleActivityLevelChange} required>
+            <option value="">Select Activity Level</option>
+            <option value="sedentary">Sedentary (little or no exercise)</option>
+            <option value="lightlyActive">Lightly active (1-3 days/week)</option>
+            <option value="moderatelyActive">Moderately active (3-5 days/week)</option>
+            <option value="veryActive">Very active (6-7 days/week)</option>
+            <option value="extremelyActive">Extremely active (2x training)</option>
+          </select>
+        </label>
         <button type="button" onClick={handleCalculateCalories}>
           Calculate Calories
         </button>
       </form>
+
       {calorieIntake !== null && <CalorieDisplay calorieIntake={calorieIntake} />}
-      {/* Include the workout day components */}
-      <div className="workout-splits">
-        <ChestDay />
-        <BackDay />
-        <LegDay />
-        <ShoulderDay />
-        <ArmsDay />
-      </div>
+
+      {showWorkoutInfo && (
+        <div className="workout-splits">
+          <ChestDay />
+          <BackDay />
+          <LegDay />
+          <ShoulderDay />
+          <ArmsDay />
+        </div>
+      )}
     </div>
   );
 };

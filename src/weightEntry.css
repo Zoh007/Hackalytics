@@ -104,5 +104,15 @@
   .exercise-name {
     white-space: nowrap; /* Prevent line break */
   }
+  .workout-splits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  .workout-splits > div {
+    margin-bottom: 20px;
+  }
   
   
