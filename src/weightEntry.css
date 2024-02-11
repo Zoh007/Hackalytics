@@ -23,10 +23,10 @@
   
   label {
     margin-bottom: 10px;
-    font-size: 14px;
-    color: #fff;
+    font-size: 18px;
+    color: #7e5e5e;
     width: 100%;
-    text-align: left;
+    text-align: center;
   }
   
   input,
@@ -77,13 +77,16 @@
     margin-bottom: 20px;
   }
   
-  /* Add this to your existing CSS or create a new CSS file and import it */
-.workout-day-container {
-    background-color: #f0f0f0;
+  .workout-day-container {
+    background-color: #ac5866; /* Pink background color */
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
+  
   
   .workout-day {
     color: #333; /* Change the font color */
@@ -91,28 +94,26 @@
   
   .workout-day h3 {
     color: #555; /* Change the header color if needed */
+    padding-left: 145px; /* Remove default padding */
+    align-items: center;
   }
   
   .workout-day ul {
     list-style-type: disc;
     margin-left: 20px; /* Adjust the margin for indentation */
+    padding-left: 50; /* Remove default padding */
   }
   
   .workout-day li {
     margin-bottom: 5px;
+    align-items: right;
   }
+  
+  .exercise-label {
+    margin-left: 10px; /* Adjust as needed */
+  }
+  
   .exercise-name {
     white-space: nowrap; /* Prevent line break */
   }
-  .workout-splits {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-  }
-  
-  .workout-splits > div {
-    margin-bottom: 20px;
-  }
-  
   
