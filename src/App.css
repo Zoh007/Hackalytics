@@ -1,3 +1,20 @@
+/* Add this to your CSS */
+.exercise-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Add spacing between exercises */
+}
+
+.exercise-label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust spacing between checkbox and exercise name */
+}
+
+.exercise-name {
+  margin-left: 5px; /* Adjust spacing between checkbox and exercise name */
+}
+
 /* App.css */
 .app-container {
     display: flex;
@@ -51,4 +68,5 @@
     color: #fff;
     opacity: 0.8;
   }
+  
   

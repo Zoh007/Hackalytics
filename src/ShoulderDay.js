@@ -1,19 +1,42 @@
 // ChestDay.js
-import React from 'react';
+import React, { useState } from 'react';
 
-const ShoulderDay = () => {
+const ChestDay = () => {
+  const [exercises, setExercises] = useState({
+    shoulderPress: false,
+    latRaises: false,
+    facePulls: false,
+    rearDeltoidFlies: false,
+    // Add more chest exercises as needed
+  });
+
+  const handleCheckboxChange = (exercise) => {
+    setExercises((prevExercises) => ({
+      ...prevExercises,
+      [exercise]: !prevExercises[exercise],
+    }));
+  };
+
   return (
     <div className="workout-day">
       <h3>Chest Day</h3>
       <ul>
-        <li>Shoulder Press</li>
-        <li>Lat Raises</li>
-        <li>Face Pulls</li>
-        <li>Rear Deltoid Flies</li>
-        {/* Add more chest exercises as needed */}
+        {Object.entries(exercises).map(([exerciseName, isChecked]) => (
+          <li key={exerciseName} className="exercise-item">
+            <label className="exercise-label">
+              <input
+                type="checkbox"
+                id={`checkbox-${exerciseName}`} // Set unique ID for accessibility
+                checked={isChecked}
+                onChange={() => handleCheckboxChange(exerciseName)}
+              />
+              <span className="exercise-name">{exerciseName}</span>
+            </label>
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
 
-export default ShoulderDay;
+export default ChestDay;
