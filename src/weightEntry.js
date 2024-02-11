@@ -1,20 +1,21 @@
 // WeightEntry.js
 import React, { useState } from 'react';
-import CalorieDisplay from './calorieDisplay'; // Corrected import
+import CalorieDisplay from './calorieDisplay';
 import ChestDay from './ChestDay';
 import BackDay from './BackDay';
-import LegDay from './LegDay'; // Corrected import
-import ShoulderDay from './ShoulderDay'; // Corrected import
+import LegDay from './LegDay';
+import ShoulderDay from './ShoulderDay';
 import ArmsDay from './ArmsDay';
-import './weightEntry.css'; // Import additional styles
+import './weightEntry.css';
 
 const WeightEntry = () => {
   const [weightInPounds, setWeightInPounds] = useState('');
   const [age, setAge] = useState('');
-  const [gender, setGender] = useState(''); // You can use a dropdown or radio buttons for gender
+  const [gender, setGender] = useState('');
   const [heightInInches, setHeightInInches] = useState('');
   const [calorieIntake, setCalorieIntake] = useState(null);
   const [activityLevel, setActivityLevel] = useState('');
+  const [weightLossGoal, setWeightLossGoal] = useState('');
   const [showWorkoutInfo, setShowWorkoutInfo] = useState(false);
 
   const handleWeightChange = (event) => {
@@ -35,6 +36,10 @@ const WeightEntry = () => {
 
   const handleActivityLevelChange = (event) => {
     setActivityLevel(event.target.value);
+  };
+
+  const handleWeightLossGoalChange = (event) => {
+    setWeightLossGoal(event.target.value);
   };
 
   const handleCalculateCalories = () => {
@@ -64,11 +69,15 @@ const WeightEntry = () => {
     }
 
     const totalCalorieIntake = basicCalorieIntake * activityMultiplier;
-    setCalorieIntake(totalCalorieIntake);
-    setShowWorkoutInfo(true); // Show workout information after calculating calories
+
+    // Calculate adjusted calorie intake based on weight loss goal
+    const weightLossCaloriesAdjustment = 500 * weightLossGoal;
+    const adjustedCalorieIntake = totalCalorieIntake - weightLossCaloriesAdjustment;
+
+    setCalorieIntake(adjustedCalorieIntake);
+    setShowWorkoutInfo(true);
   };
 
-  // Generate options for the age dropdown (e.g., from 18 to 99)
   const ageOptions = Array.from({ length: 82 }, (_, index) => 18 + index);
 
   return (
@@ -77,7 +86,13 @@ const WeightEntry = () => {
       <form>
         <label>
           Weight (in pounds):
-          <input type="number" value={weightInPounds} onChange={handleWeightChange} placeholder="e.g., 150" required />
+          <input
+            type="number"
+            value={weightInPounds}
+            onChange={handleWeightChange}
+            placeholder="e.g., 150"
+            required
+          />
         </label>
         <label>
           Age:
@@ -102,7 +117,13 @@ const WeightEntry = () => {
         </label>
         <label>
           Height (in inches):
-          <input type="number" value={heightInInches} onChange={handleHeightChange} placeholder="e.g., 65" required />
+          <input
+            type="number"
+            value={heightInInches}
+            onChange={handleHeightChange}
+            placeholder="e.g., 65"
+            required
+          />
         </label>
         <label>
           Activity Level:
@@ -113,6 +134,19 @@ const WeightEntry = () => {
             <option value="moderatelyActive">Moderately active (3-5 days/week)</option>
             <option value="veryActive">Very active (6-7 days/week)</option>
             <option value="extremelyActive">Extremely active (2x training)</option>
+          </select>
+        </label>
+        <label>
+          Weight Loss Goal (in pounds):
+          <select value={weightLossGoal} onChange={handleWeightLossGoalChange} required>
+            <option value="" disabled>
+              Select Weight Loss Goal
+            </option>
+            <option value="0">Maintain Weight</option>
+            <option value="0.5">Lose 0.5 pounds per week</option>
+            <option value="1">Lose 1 pound per week</option>
+            <option value="1.5">Lose 1.5 pounds per week</option>
+            {/* Add more options as needed */}
           </select>
         </label>
         <button type="button" onClick={handleCalculateCalories}>
