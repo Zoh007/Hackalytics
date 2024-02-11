@@ -1,14 +1,18 @@
 /* WeightEntry.css */
+body {
+  background-color: #eed6da; /* Pink background color for the entire page */
+}
+
 .weight-entry-container {
-    max-width: 400px;
-    margin: auto; /* Center the box on the page */
-    margin-top: 50px; /* Add some top margin for spacing */
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #ffb6c1; /* Different shade of pink for the central box */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
   
   .weight-entry-container h2 {
     color: #333;
