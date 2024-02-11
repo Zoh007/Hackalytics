@@ -19,7 +19,7 @@ const ChestDay = () => {
 
   return (
     <div className="workout-day">
-      <h3>Chest Day</h3>
+      <h3>Shoulder Day</h3>
       <ul>
         {Object.entries(exercises).map(([exerciseName, isChecked]) => (
           <li key={exerciseName} className="exercise-item">
