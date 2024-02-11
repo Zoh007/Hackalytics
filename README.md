@@ -1,4 +1,4 @@
 # Hacklytics24
-TEAM MSA
-\n
+TEAM MSA -
+
 Group Members: Zaid Mohammed, Humza Fawwaz, Zohair Hossain, Asrar Syed
