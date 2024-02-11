@@ -1,11 +1,12 @@
+// ChestDay.js
 import React, { useState } from 'react';
 
 const ChestDay = () => {
   const [exercises, setExercises] = useState({
-    shoulderPress: false,
-    latRaises: false,
-    facePulls: false,
-    rearDeltoidFlies: false,
+    BenchPress: false,
+    InclineBenchPress: false,
+    ChestFlies: false,
+
     // Add more chest exercises as needed
   });
 
@@ -29,7 +30,9 @@ const ChestDay = () => {
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(exerciseName)}
               />
-              <span className="exercise-name">{exerciseName}</span>
+              <span className="exercise-name" style={{ whiteSpace: 'nowrap' }}>
+                {exerciseName.replace(/([a-z])([A-Z])/g, '$1 $2')}
+              </span>
             </label>
           </li>
         ))}

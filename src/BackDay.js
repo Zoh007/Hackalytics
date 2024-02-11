@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 
 const BackDay = () => {
   const [exercises, setExercises] = useState({
-    pullUps: false,
-    latPulldown: false,
-    rows: false,
+    PullUps: false,
+    LatPulldown: false,
+    Rows: false,
     // Add more back exercises as needed
   });
 
@@ -29,7 +29,9 @@ const BackDay = () => {
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(exerciseName)}
               />
-              <span className="exercise-name">{exerciseName}</span>
+              <span className="exercise-name" style={{ whiteSpace: 'nowrap' }}>
+                {exerciseName.replace(/([a-z])([A-Z])/g, '$1 $2')}
+              </span>
             </label>
           </li>
         ))}

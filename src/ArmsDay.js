@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 
 const ArmsDay = () => {
   const [exercises, setExercises] = useState({
-    bicepsCurls: false,
-    tricepPulldown: false,
-    hammerCurls: false,
-    spiderCurls: false,
+    BicepsCurls: false,
+    TricepPulldown: false,
+    HammerCurls: false,
+    SpiderCurls: false,
     // Add more arm exercises as needed
   });
 
@@ -30,7 +30,9 @@ const ArmsDay = () => {
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(exerciseName)}
               />
-              <span className="exercise-name">{exerciseName}</span>
+              <span className="exercise-name" style={{ whiteSpace: 'nowrap' }}>
+                {exerciseName.replace(/([a-z])([A-Z])/g, '$1 $2')}
+              </span>
             </label>
           </li>
         ))}

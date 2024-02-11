@@ -101,5 +101,8 @@
   .workout-day li {
     margin-bottom: 5px;
   }
+  .exercise-name {
+    white-space: nowrap; /* Prevent line break */
+  }
   
   

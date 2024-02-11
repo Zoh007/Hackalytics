@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 
 const LegDay = () => {
   const [exercises, setExercises] = useState({
-    calfRaises: false,
-    seatedLegCurls: false,
-    legRaises: false,
-    legPress: false,
+    CalfRaises: false,
+    SeatedLegCurls: false,
+    LegRaises: false,
+    LegPress: false,
     // Add more leg exercises as needed
   });
 
@@ -30,7 +30,7 @@ const LegDay = () => {
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(exerciseName)}
               />
-              <span className="exercise-name">{exerciseName}</span>
+              <span className="exercise-name">{exerciseName.replace(/([a-z])([A-Z])/g, '$1 $2')}</span>
             </label>
           </li>
         ))}
